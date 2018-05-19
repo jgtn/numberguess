@@ -21,7 +21,7 @@ int allegro_init(void)
   /************************
   RUTINAS DE INICIALIZACIÓN
   ************************/
-
+    
   ALLEGRO_EVENT_QUEUE *event_queue = NULL;
   ALLEGRO_TIMER *timer = NULL;
   ALLEGRO_DISPLAY *display = NULL;
@@ -38,8 +38,7 @@ int allegro_init(void)
     return 0;
   }
 
-  timer = al_create_timer(TIME);                           // Inicializo temporizador de juego
-
+  timer = al_create_timer(1.0/FPS);                           // Inicializo temporizador de juego
   if(!timer)
   {
     printf("Error, no se pudo inicializar el timer\n");
@@ -48,7 +47,6 @@ int allegro_init(void)
   }
 
   event_queue = al_create_event_queue();                    // Inicializo cola de eventos
-
   if(!event_queue)
   {
     printf("Error, no se pudo inicializar la cola de eventos\n");
@@ -57,8 +55,7 @@ int allegro_init(void)
     return 0;
   }
 
-  display = al_create_display(DISPLAY_WIDTH, DISPLAY_HEIGHT);   // Inicializo display (interfaz)
-
+  display = al_create_display(DISPLAY_WIDTH_SAMPLE, DISPLAY_HEIGHT_SAMPLE);   // Inicializo display (interfaz)
   if(!display)
   {
     printf("Error, no se pudo inicializar el display\n");
@@ -68,25 +65,8 @@ int allegro_init(void)
     return 0;
   }
 
-  if(!al_init_font_addon())                                   // Inicializa fuentes
-  {
-    printf("Error, no se pudo inicializar font\n");
-    al_shutdown_primitives_addon();
-    al_destroy_timer(timer);
-    al_destroy_event_queue(event_queue);
-    al_destroy_display(display);
-    return 0;
-  }
-
-  if(!al_init_ttf_addon())                                    // Inicializa fuentes
-  {
-    printf("Error, no se pudo inicializar ttf\n");
-    al_shutdown_primitives_addon();
-    al_destroy_timer(timer);
-    al_destroy_event_queue(event_queue);
-    al_destroy_display(display);
-    return 0;
-  }
+  al_init_font_addon();
+  al_init_ttf_addon();
 
 
   return 1;                                                     // Si la inicialización es correcta, devuelvo un 1

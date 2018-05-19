@@ -16,12 +16,16 @@ extern "C"
  * INCLUDE HEADER FILES
  ******************************************************************************/
 #include "allegro_init.h"
-
+#include <time.h>
+#include "termlib.h"
+    
 /*******************************************************************************
  * CONSTANT AND MACRO DEFINITIONS USING #DEFINE
  ******************************************************************************/
-#define DISPLAY_WITH 800
+#define DISPLAY_WIDTH 800
 #define DISPLAY_HEIGHT 800
+#define NUM_MIN 1
+#define NUM_MAX 100
 
 
 /*******************************************************************************

@@ -21,14 +21,20 @@ extern "C" {
  * INCLUDE HEADER FILES
  ******************************************************************************/
 #include  <stdio.h>
-#include  <allegro5/allegro.h>
+#include  <allegro5/allegro5.h>
+#include  <allegro5/allegro_color.h>
+#include  <allegro5/allegro_primitives.h>
+#include  <allegro5/allegro_font.h>
+#include  <allegro5/allegro_ttf.h>
 #include  <stdbool.h>
 
 
 /*******************************************************************************
  * CONSTANT AND MACRO DEFINITIONS USING #DEFINE
  ******************************************************************************/
-
+#define FPS 60.0
+#define DISPLAY_WIDTH_SAMPLE 100
+#define DISPLAY_HEIGHT_SAMPLE 100
 
 
 /*******************************************************************************
