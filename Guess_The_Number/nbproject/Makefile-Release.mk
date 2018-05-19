@@ -35,7 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Guess_The_Number.o
+	${OBJECTDIR}/Guess_The_Number.o \
+	${OBJECTDIR}/allegro_init.o
 
 
 # C Compiler Flags
@@ -66,6 +67,11 @@ ${OBJECTDIR}/Guess_The_Number.o: Guess_The_Number.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Guess_The_Number.o Guess_The_Number.c
+
+${OBJECTDIR}/allegro_init.o: allegro_init.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/allegro_init.o allegro_init.c
 
 # Subprojects
 .build-subprojects:
